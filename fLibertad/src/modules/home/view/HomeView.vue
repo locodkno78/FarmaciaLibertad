@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NavbarView/>
+    <NavbarView />
     <Home />
-    <FooterView/>
+    <FooterView />
   </div>
 </template>
 
@@ -16,6 +16,6 @@ export default {
     NavbarView,
     Home,
     FooterView,
-  }
+  },
 };
 </script>

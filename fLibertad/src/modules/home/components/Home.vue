@@ -16,7 +16,7 @@
           >
           </v-img>
           <v-card-actions>
-            <v-btn color="green" text="Cargar Recetas"></v-btn>
+            <v-btn color="green" text="Cargar Recetas" to="RecetsView"></v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
