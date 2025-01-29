@@ -1,10 +1,12 @@
 <template>
   <div>
     <NavbarView />
+  </div>
+  <div>
     <Recets />
-    <div class="footer">
-      <FooterView />
-    </div>
+  </div>
+  <div>
+    <FooterView />
   </div>
 </template>
 
@@ -23,11 +25,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.footer{
-    width: 100%;
-    position: fixed;   
-    bottom: 0;   
-    z-index: 1000;
-}
-</style>
+<style scoped></style>

@@ -1,8 +1,8 @@
 <template>
   <v-toolbar class="toolbar" density="compact">
-    <v-toolbar-title class="text"
+    <router-link to="/" class="text-decoration-none"><v-toolbar-title class="text"
       ><v-icon>mdi-hospital</v-icon>Farmacia Libertad</v-toolbar-title
-    >
+    ></router-link>
     <v-spacer></v-spacer>
     <v-btn class="icon" icon>
       <v-icon>mdi-magnify</v-icon>
