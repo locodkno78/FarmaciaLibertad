@@ -19,19 +19,19 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-card class="mx-auto" max-width="400">
-            <v-img class="align-end text-white" height="200" src="../../../../public/contacto.jpg" cover>
-            </v-img>
+            <router-link to="/ContactView" class="text-decoration-none"><v-img class="align-end text-white" height="200" src="../../../../public/contacto.jpg" cover>
+            </v-img></router-link>
             <v-card-actions>
-              <v-btn color="green" text="Contactanos"></v-btn>
+              <v-btn color="green" text="Contactanos" to="ContactView"></v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
         <v-col cols="12" md="4">
           <v-card class="mx-auto" max-width="400">
-            <v-img class="align-end text-white" height="200" src="../../../../public/maps.jpg" cover>
-            </v-img>
+            <router-link to="/LocationView" class="text-decoration-none"><v-img class="align-end text-white" height="200" src="../../../../public/maps.jpg" cover>
+            </v-img></router-link>
             <v-card-actions>
-              <v-btn color="green" text="Ubicación"></v-btn>
+              <v-btn color="green" text="Ubicación" to="LocationView"></v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
