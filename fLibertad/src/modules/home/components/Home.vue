@@ -19,8 +19,29 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-card class="mx-auto" max-width="400">
-            <router-link to="/ContactView" class="text-decoration-none"><v-img class="align-end text-white" height="200" src="../../../../public/contacto.jpg" cover>
-            </v-img></router-link>
+            <router-link to="/PerfumeryView" class="text-decoration-none"><v-img class="align-end text-white"
+                height="200" src="../../../../public/perfumeria.jpg" cover>
+              </v-img></router-link>
+            <v-card-actions>
+              <v-btn color="green" text="Perfumeria" to="PerfumeryView"></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-card class="mx-auto" max-width="400">
+            <router-link to="/PersonalCareView" class="text-decoration-none"><v-img class="align-end text-white"
+                height="200" src="../../../../public/cuidado-personal.jpg" cover>
+              </v-img></router-link>
+            <v-card-actions>
+              <v-btn color="green" text="Cuidado Personal" to="PersonalCareView"></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-card class="mx-auto" max-width="400">
+            <router-link to="/ContactView" class="text-decoration-none"><v-img class="align-end text-white" height="200"
+                src="../../../../public/contacto.jpg" cover>
+              </v-img></router-link>
             <v-card-actions>
               <v-btn color="green" text="Contactanos" to="ContactView"></v-btn>
             </v-card-actions>
@@ -28,10 +49,21 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-card class="mx-auto" max-width="400">
-            <router-link to="/LocationView" class="text-decoration-none"><v-img class="align-end text-white" height="200" src="../../../../public/maps.jpg" cover>
-            </v-img></router-link>
+            <router-link to="/LocationView" class="text-decoration-none"><v-img class="align-end text-white"
+                height="200" src="../../../../public/maps.jpg" cover>
+              </v-img></router-link>
             <v-card-actions>
               <v-btn color="green" text="Ubicación" to="LocationView"></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-card class="mx-auto" max-width="400">
+            <router-link to="/OffersView" class="text-decoration-none"><v-img class="align-end text-white"
+                height="200" src="../../../../public/ofertas.jpg" cover>
+              </v-img></router-link>
+            <v-card-actions>
+              <v-btn color="green" text="Ofertas" to="OffersView"></v-btn>
             </v-card-actions>
           </v-card>
         </v-col>

@@ -3,6 +3,9 @@ import HomeView from '../modules/home/view/HomeView.vue';
 import RecetsView from '../modules/recets/view/RecetsView.vue';
 import ContactView from '../modules/contact/view/ContactView.vue';
 import LocationView from '../modules/location/view/LocationView.vue';
+import PersonalCareView from '../modules/personalCare/view/PersonalCareView.vue';
+import PerfumeryView from '../modules/perfumery/view/PerfumeryView.vue';
+import OffersView from '../modules/offers/view/OffersView.vue';
 
 
 const routes = [
@@ -25,6 +28,21 @@ const routes = [
     path: '/LocationView',
     name: 'LocationView',
     component: LocationView,
+  },
+  {
+    path: '/PersonalCareView',
+    name: 'PersonalCareView',
+    component: PersonalCareView,
+  },
+  {
+    path: '/PerfumeryView',
+    name: 'PerfumeryView',
+    component: PerfumeryView,
+  },
+  {
+    path: '/OffersView',
+    name: 'OffersView',
+    component: OffersView,
   },
 ];
 

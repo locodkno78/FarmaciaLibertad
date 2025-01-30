@@ -28,8 +28,11 @@ export default {
     items: [
       { title: "Home", route: "/" },
       { title: "Cargar Recetas", route: "/RecetsView" },
+      { title: "Perfumeria", route: "/PerfumeryView" },
+      { title: "Cuidado Personal", route: "/PersonalCareView" },
       { title: "Contacto", route: "/ContactView" },
       { title: "Ubicación", route: "/LocationView" },
+      { title: "Ofertas", route: "/OffersView" },
     ],
   }),
 };

@@ -6,9 +6,12 @@
         <v-form ref="formRef" v-model="valid" class="form">
           <v-text-field v-model="formData.nombre" label="Nombre" :rules="[rules.required]" outlined></v-text-field>
           <v-text-field v-model="formData.apellido" label="Apellido" :rules="[rules.required]" outlined></v-text-field>
-          <v-text-field v-model="formData.domicilio" label="Domicilio" :rules="[rules.required]" outlined></v-text-field>
-          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]" outlined></v-text-field>
-          <v-textarea v-model="formData.receta" label="Pegue el Link de su Receta" :rules="[rules.required]" outlined></v-textarea>
+          <v-text-field v-model="formData.domicilio" label="Domicilio" :rules="[rules.required]"
+            outlined></v-text-field>
+          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]"
+            outlined></v-text-field>
+          <v-textarea v-model="formData.receta" label="Pegue el Link de su Receta" :rules="[rules.required]"
+            outlined></v-textarea>
 
           <div class="mt-4 btn">
             <v-btn color="success" @click="submit" :disabled="!valid">Enviar</v-btn>
@@ -17,6 +20,21 @@
         </v-form>
       </v-card-text>
     </v-card>
+    <!-- Snackbar de éxito -->
+    <v-snackbar v-model="snackbar.success" color="green" location="center">
+      {{ snackbar.message }}
+      <template v-slot:actions>
+        <v-btn color="white" text @click="goHome">Aceptar</v-btn>
+      </template>
+    </v-snackbar>
+
+    <!-- Snackbar de error -->
+    <v-snackbar v-model="snackbar.error" color="red" location="center">
+      {{ snackbar.message }}
+      <template v-slot:actions>
+        <v-btn color="white" text @click="snackbar.error = false">Cerrar</v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -39,6 +57,12 @@ export default {
       receta: "",
     });
 
+    const snackbar = ref({ success: false, error: false, message: "" });
+    const goHome = () => {
+      snackbar.value.success = false; // Cierra el snackbar
+      router.push("/"); // Redirige al home
+    };
+
     const valid = ref(false);
     const rules = {
       required: (value) => !!value || "Este campo es obligatorio.",
@@ -48,12 +72,20 @@ export default {
     const submit = async () => {
       try {
         await addDoc(collection(db, "recetas"), formData.value);
-        alert("Formulario enviado correctamente! En breve nos contactaremos con Ud.");
+        snackbar.value = {
+          success: true,
+          error: false,
+          message: "Formulario enviado correctamente. En breve nos contactaremos con Ud.",
+        };
         resetForm();
-        router.push("/");
+       // router.push("/");
       } catch (error) {
         console.error("Error al enviar el formulario:", error);
-        alert("Hubo un error al enviar el formulario. Inténtelo nuevamente.");
+        snackbar.value = {
+          success: false,
+          error: true,
+          message: "Hubo un error al enviar el formulario. Inténtelo nuevamente.",
+        };
       }
     };
 
@@ -77,6 +109,8 @@ export default {
       submit,
       resetForm,
       formRef,
+      snackbar,
+      goHome
     };
   },
 };
@@ -86,6 +120,7 @@ export default {
 .v-container {
   max-width: 600px;
 }
+
 .title {
   font-family: 'Times New Roman', Times, serif;
   font-size: xx-large;
@@ -93,10 +128,12 @@ export default {
   color: white;
   text-align: center;
 }
+
 .form {
   padding-top: 2%;
 }
+
 .btn {
-  text-align: center;  
+  text-align: center;
 }
 </style>
