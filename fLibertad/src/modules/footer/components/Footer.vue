@@ -2,7 +2,7 @@
   <v-footer class="footer">
     <v-row justify="center" no-gutters>
       <v-col class="text-center mt-4" cols="12">
-        <strong>&copy; 2025 Santiago Di Colantonio. Todos los derechos reservados.</strong>
+        <strong>&copy; <a href="mailto:dicolantoniosantiago@gmail.com" style="color: white; text-decoration: none;" >2025 Santiago Di Colantonio. Todos los derechos reservados.</a></strong>
       </v-col>
     </v-row>
   </v-footer>
