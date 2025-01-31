@@ -1,16 +1,8 @@
 <template>
-    <div>
-        <NavbarView />
-    </div>
-    <div>
-        <History />
-    </div>
-    <div>
-        <Location />
-    </div>
-    <div>
-        <FooterView />
-    </div>
+    <NavbarView />
+    <History />
+    <Location />
+    <FooterView />
     <WhatsAppView />
 </template>
 

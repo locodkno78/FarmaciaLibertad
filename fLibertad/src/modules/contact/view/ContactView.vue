@@ -1,14 +1,8 @@
 <template>
-    <div>
-        <NavbarView />
-    </div>
-    <div>
-        <Contact />
-    </div>
-    <div>
-        <FooterView />
-    </div>
-    <WhatsAppView/>
+    <NavbarView />
+    <Contact />
+    <FooterView />
+    <WhatsAppView />
 </template>
 
 <script>

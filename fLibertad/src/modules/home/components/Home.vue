@@ -1,69 +1,19 @@
 <template>
   <v-container>
-    <v-carousel height="400" show-arrows="hover" cycle hide-delimiter-background>
-      <v-carousel-item v-for="(item, i) in items" :key="i" :src="item">
+    <v-carousel height="auto" show-arrows="hover" cycle hide-delimiter-background>
+      <v-carousel-item v-for="(item, i) in items" :key="i">
+        <v-img :src="item.src" contain></v-img>
       </v-carousel-item>
     </v-carousel>
     <div class="cards">
       <v-row>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <router-link to="/RecetsView" class="text-decoration-none"><v-img class="align-end text-white" height="200"
-                src="../../../../public/recetas.jpg" cover>
-              </v-img>
+        <v-col cols="12" sm="6" md="4" v-for="(card, index) in cards" :key="index">
+          <v-card class="mx-auto">
+            <router-link :to="card.route" class="text-decoration-none">
+              <v-img class="align-end text-white" height="200" :src="card.image" cover></v-img>
             </router-link>
             <v-card-actions>
-              <v-btn color="green" text="Cargar Recetas" to="RecetsView"></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <router-link to="/PerfumeryView" class="text-decoration-none"><v-img class="align-end text-white"
-                height="200" src="../../../../public/perfumeria.jpg" cover>
-              </v-img></router-link>
-            <v-card-actions>
-              <v-btn color="green" text="Perfumeria" to="PerfumeryView"></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <router-link to="/PersonalCareView" class="text-decoration-none"><v-img class="align-end text-white"
-                height="200" src="../../../../public/cuidado-personal.jpg" cover>
-              </v-img></router-link>
-            <v-card-actions>
-              <v-btn color="green" text="Cuidado Personal" to="PersonalCareView"></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <router-link to="/ContactView" class="text-decoration-none"><v-img class="align-end text-white" height="200"
-                src="../../../../public/contacto.jpg" cover>
-              </v-img></router-link>
-            <v-card-actions>
-              <v-btn color="green" text="Contactanos" to="ContactView"></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <router-link to="/LocationView" class="text-decoration-none"><v-img class="align-end text-white"
-                height="200" src="../../../../public/maps.jpg" cover>
-              </v-img></router-link>
-            <v-card-actions>
-              <v-btn color="green" text="Ubicación" to="LocationView"></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <router-link to="/OffersView" class="text-decoration-none"><v-img class="align-end text-white"
-                height="200" src="../../../../public/ofertas.jpg" cover>
-              </v-img></router-link>
-            <v-card-actions>
-              <v-btn color="green" text="Ofertas" to="OffersView"></v-btn>
+              <v-btn color="green" :text="card.text" :to="card.route"></v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -91,6 +41,14 @@ export default {
           src: "../../../public/Tafirol.jpg",
         },
       ],
+      cards: [
+        { image: "../../../../public/recetas.jpg", text: "Cargar Recetas", route: "/RecetsView" },
+        { image: "../../../../public/perfumeria.jpg", text: "Perfumeria", route: "/PerfumeryView" },
+        { image: "../../../../public/cuidado-personal.jpg", text: "Cuidado Personal", route: "/PersonalCareView" },
+        { image: "../../../../public/contacto.jpg", text: "Contactanos", route: "/ContactView" },
+        { image: "../../../../public/maps.jpg", text: "Ubicación", route: "/LocationView" },
+        { image: "../../../../public/ofertas.jpg", text: "Ofertas", route: "/OffersView" }
+      ]
     };
   },
 };
@@ -104,5 +62,16 @@ p {
 
 .cards {
   margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

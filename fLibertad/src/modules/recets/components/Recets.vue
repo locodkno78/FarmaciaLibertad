@@ -6,12 +6,9 @@
         <v-form ref="formRef" v-model="valid" class="form">
           <v-text-field v-model="formData.nombre" label="Nombre" :rules="[rules.required]" outlined></v-text-field>
           <v-text-field v-model="formData.apellido" label="Apellido" :rules="[rules.required]" outlined></v-text-field>
-          <v-text-field v-model="formData.domicilio" label="Domicilio" :rules="[rules.required]"
-            outlined></v-text-field>
-          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]"
-            outlined></v-text-field>
-          <v-textarea v-model="formData.receta" label="Pegue el Link de su Receta" :rules="[rules.required]"
-            outlined></v-textarea>
+          <v-text-field v-model="formData.domicilio" label="Domicilio" :rules="[rules.required]" outlined></v-text-field>
+          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]" outlined></v-text-field>
+          <v-textarea v-model="formData.receta" label="Pegue el Link de su Receta" :rules="[rules.required]" outlined></v-textarea>
 
           <div class="mt-4 btn">
             <v-btn @click="submit" :disabled="!valid" class="btn1">Enviar</v-btn>
@@ -20,6 +17,7 @@
         </v-form>
       </v-card-text>
     </v-card>
+
     <!-- Snackbar de éxito -->
     <v-snackbar v-model="snackbar.success" color="green" location="center">
       {{ snackbar.message }}
@@ -119,19 +117,24 @@ export default {
 <style scoped>
 .v-container {
   max-width: 600px;
+  margin-bottom: 5%;
+  overflow-x: hidden; /* Evita desbordamientos horizontales */
 }
 
 .card {
   border-width: 2px;
   border-color: green;
+  margin: 0 auto;
+  height: auto; /* Asegura que la tarjeta se ajuste al contenido */
 }
 
 .title {
   font-family: 'Times New Roman', Times, serif;
-  font-size: xx-large;
+  font-size: 1.5rem;
   background-color: green;
   color: white;
   text-align: center;
+  padding: 10px;
 }
 
 .form {
@@ -139,7 +142,7 @@ export default {
 }
 
 .btn {
-  text-align: center;  
+  text-align: center;
 }
 
 .btn1 {
@@ -147,4 +150,32 @@ export default {
   color: white;
   margin-left: 5%;
 }
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  .btn1 {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Evitar corte en pantallas horizontales más grandes (tablets en horizontal) */
+  .v-container {
+    padding: 0 20px;
+  }
+}
+
 </style>
+
