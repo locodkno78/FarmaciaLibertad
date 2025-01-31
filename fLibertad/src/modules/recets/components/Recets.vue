@@ -1,6 +1,6 @@
 <template>
   <v-container class="mt-4">
-    <v-card class="mx-auto my-8" elevation="16" max-width="500">
+    <v-card class="mx-auto my-8 card" elevation="16" max-width="500">
       <v-card-title class="title">Formulario Receta</v-card-title>
       <v-card-text>
         <v-form ref="formRef" v-model="valid" class="form">
@@ -14,8 +14,8 @@
             outlined></v-textarea>
 
           <div class="mt-4 btn">
-            <v-btn color="success" @click="submit" :disabled="!valid">Enviar</v-btn>
-            <v-btn color="success" @click="resetForm" class="ms-2">Limpiar</v-btn>
+            <v-btn @click="submit" :disabled="!valid" class="btn1">Enviar</v-btn>
+            <v-btn @click="resetForm" class="btn1">Limpiar</v-btn>
           </div>
         </v-form>
       </v-card-text>
@@ -78,7 +78,7 @@ export default {
           message: "Formulario enviado correctamente. En breve nos contactaremos con Ud.",
         };
         resetForm();
-       // router.push("/");
+        // router.push("/");
       } catch (error) {
         console.error("Error al enviar el formulario:", error);
         snackbar.value = {
@@ -121,6 +121,11 @@ export default {
   max-width: 600px;
 }
 
+.card {
+  border-width: 2px;
+  border-color: green;
+}
+
 .title {
   font-family: 'Times New Roman', Times, serif;
   font-size: xx-large;
@@ -134,6 +139,12 @@ export default {
 }
 
 .btn {
-  text-align: center;
+  text-align: center;  
+}
+
+.btn1 {
+  background-color: green;
+  color: white;
+  margin-left: 5%;
 }
 </style>
