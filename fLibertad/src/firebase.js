@@ -6,12 +6,13 @@ import { getStorage } from "firebase/storage";
 
 // Configuración de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAcl_SCcjDkpPT2SXQwIr3EXAKyFAx71FM",
-  authDomain: "miproyectofarmcia.firebaseapp.com",
-  projectId: "miproyectofarmcia",
-  storageBucket: "miproyectofarmcia.appspot.com", // ❌ Corregí esto, antes estaba mal
-  messagingSenderId: "881973464213",
-  appId: "1:881973464213:web:3544e425d8111ef632df9c",
+  apiKey: "AIzaSyCzCN_69meoMTP9mAL4yDJcXFVEA3Pq0dA",
+  authDomain: "clientes-26237.firebaseapp.com",
+  databaseURL: "https://clientes-26237-default-rtdb.firebaseio.com",
+  projectId: "clientes-26237",
+  storageBucket: "clientes-26237.appspot.com",
+  messagingSenderId: "320420249976",
+  appId: "1:320420249976:web:d2962562d9377241abc88d"
 };
 
 // Inicializar Firebase
