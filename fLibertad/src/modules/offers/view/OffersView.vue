@@ -1,8 +1,8 @@
 <template>
     <div>
         <NavbarView />
-        <Offers />
-        <FooterView />
+        <Offers class="offers-container" />
+        <FooterView class="footer-view"/>
         <WhatsAppView />
     </div>
 </template>
@@ -22,3 +22,16 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.offers-container {
+    margin-bottom: 60px;
+    /* Ajusta este valor según sea necesario */
+    margin-left: 2%;
+}
+
+.footer-view {
+    margin-top: 90px;
+    /* Ajusta este valor según sea necesario */
+}
+</style>
