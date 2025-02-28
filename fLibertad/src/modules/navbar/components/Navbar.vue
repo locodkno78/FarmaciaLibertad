@@ -9,11 +9,6 @@
 
       <v-spacer></v-spacer>
 
-      <!-- Botón de búsqueda -->
-      <v-btn class="icon" icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
       <!-- Menú desplegable -->
       <v-menu transition="slide-y-transition">
         <template v-slot:activator="{ props }">
@@ -59,7 +54,7 @@ export default {
 /* Ajustes de título */
 .text {
   color: white;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Monserrat";
   font-weight: bolder;
   align-items: center;
   font-size: 24px;
@@ -80,6 +75,7 @@ export default {
 .list-item {
   color: white;
   font-weight: bold;
+  font-family: Monserrat;  
   background-color: green;
 }
 

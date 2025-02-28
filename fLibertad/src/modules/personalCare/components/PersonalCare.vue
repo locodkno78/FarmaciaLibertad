@@ -42,6 +42,8 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .card-image {

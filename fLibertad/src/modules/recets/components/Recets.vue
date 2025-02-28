@@ -8,6 +8,13 @@
           <v-text-field v-model="formData.apellido" label="Apellido" :rules="[rules.required]" outlined></v-text-field>
           <v-text-field v-model="formData.domicilio" label="Domicilio" :rules="[rules.required]" outlined></v-text-field>
           <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]" outlined></v-text-field>
+          <v-select
+            v-model="formData.obraSocial"
+            :items="items"
+            :rules="[v => !!v || 'Item is required']"
+            label="Obra Social"
+            required
+          ></v-select>
           <v-textarea v-model="formData.receta" label="Pegue el Link de su Receta" :rules="[rules.required]" outlined></v-textarea>
 
           <div class="mt-4 btn">
@@ -53,12 +60,26 @@ export default {
       domicilio: "",
       telefono: "",
       receta: "",
+      obraSocial: "", // Añadido campo obraSocial
     });
+
+    const items = ref([
+      'Subsidio de Salud',
+      'PAMI',
+      'Boreal',
+      'Prensa',
+      'Swiss Medical',
+      'OSFATUN',
+      'Sancor Salud',
+      'Prevension Salud',
+      'ASUNT',
+      'Union Personal',
+    ]);
 
     const snackbar = ref({ success: false, error: false, message: "" });
     const goHome = () => {
-      snackbar.value.success = false; // Cierra el snackbar
-      router.push("/"); // Redirige al home
+      snackbar.value.success = false;
+      router.push("/");
     };
 
     const valid = ref(false);
@@ -76,7 +97,6 @@ export default {
           message: "Formulario enviado correctamente. En breve nos contactaremos con Ud.",
         };
         resetForm();
-        // router.push("/");
       } catch (error) {
         console.error("Error al enviar el formulario:", error);
         snackbar.value = {
@@ -94,6 +114,7 @@ export default {
         domicilio: "",
         telefono: "",
         receta: "",
+        obraSocial: "", // Añadido campo obraSocial
       };
       if (formRef.value) {
         formRef.value.resetValidation();
@@ -108,7 +129,8 @@ export default {
       resetForm,
       formRef,
       snackbar,
-      goHome
+      goHome,
+      items
     };
   },
 };
@@ -118,19 +140,20 @@ export default {
 .v-container {
   max-width: 600px;
   margin-bottom: 5%;
-  overflow-x: hidden; /* Evita desbordamientos horizontales */
+  overflow-x: hidden;
 }
 
 .card {
   border-width: 2px;
   border-color: green;
   margin: 0 auto;
-  height: auto; /* Asegura que la tarjeta se ajuste al contenido */
+  height: auto;
 }
 
 .title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 1.5rem;
+  font-family: Monserrat;
+  font-weight: bolder;
+  font-size: 2.5rem;
   background-color: green;
   color: white;
   text-align: center;
@@ -139,6 +162,7 @@ export default {
 
 .form {
   padding-top: 2%;
+  font-family: Monserrat;  
 }
 
 .btn {
@@ -151,7 +175,6 @@ export default {
   margin-left: 5%;
 }
 
-/* Estilos responsivos */
 @media (max-width: 600px) {
   .card {
     width: 100%;
@@ -171,11 +194,8 @@ export default {
 }
 
 @media (max-width: 768px) {
-  /* Evitar corte en pantallas horizontales más grandes (tablets en horizontal) */
   .v-container {
     padding: 0 20px;
   }
 }
-
 </style>
-

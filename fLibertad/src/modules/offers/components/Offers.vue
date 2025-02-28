@@ -1,6 +1,6 @@
 <template>
   <h1></h1>
-    <div class="cards">
+  <div class="cards" v-bind="$attrs">
     <v-row>
       <v-col cols="12" sm="6" md="4" v-for="(card, index) in cards" :key="index">
         <v-card class="mx-auto" elevation="10">
@@ -13,10 +13,13 @@
       </v-col>
     </v-row>
   </div>
-  </template> 
+</template>
+
 <script>
+import { onMounted } from "vue";
+
 export default {
-  name: "Offers", 
+  name: "Offers",
   data() {
     return {
       cards: [
@@ -28,21 +31,23 @@ export default {
         { image: "/rexona.webp", text: "CONSULTAR", text2: "Rexona" }
       ]
     };
-  } 
+  },
+  mounted() {
+    let title = document.querySelector('h1');
+    let text = '***OFERTAS EXCLUSIVAS PARA LA WEB***';
+    let letterStart = 0;
+    let letterEnd = 1;
+    let write = setInterval(() => {
+      if (title) {
+        title.innerHTML = text.slice(letterStart, letterEnd);
+        letterEnd++;
+        if (letterEnd > text.length) {
+          letterEnd = 1;
+        }
+      }
+    }, 200);
+  }
 };
-window.addEventListener('load', () => {
- let title= document.querySelector('h1');
- let text= '***OFERTAS EXCLUSIVAS PARA LA WEB***';
- let letterStart= 0;
- let letterEnd= 1;
- let write = setInterval(() => {
-   title.innerHTML= text.slice(letterStart, letterEnd);   
-   letterEnd++;
-   if(letterEnd > text.length){
-     letterEnd = 1;
-   }
- }, 200);
-});
 </script>
 
 <style scoped>
@@ -58,6 +63,8 @@ window.addEventListener('load', () => {
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .card-image {

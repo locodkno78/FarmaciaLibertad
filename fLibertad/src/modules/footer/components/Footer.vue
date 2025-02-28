@@ -2,7 +2,8 @@
   <v-footer class="footer">
     <v-row>
       <v-col class="text-center mt-4" cols="12">
-        <strong>&copy; <a href="mailto:dicolantoniosantiago@gmail.com" style="color: white; text-decoration: none;">2025
+        <strong>&copy; <a href="mailto:dicolantoniosantiago@gmail.com"
+            style="color: white; text-decoration: none; font-family: Monserrat;">2025
             Santiago Di Colantonio. Todos los derechos reservados.</a></strong>
       </v-col>
     </v-row>
@@ -26,8 +27,8 @@ export default {
   z-index: 1000;
   height: 50px;
   display: flex;
-  align-items: center;  
-  justify-content: center;  
+  align-items: center;
+  justify-content: center;
 }
 
 
