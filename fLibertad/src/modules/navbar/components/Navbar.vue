@@ -34,6 +34,7 @@ export default {
       items: [
         { title: "Home", route: "/" },
         { title: "Cargar Recetas", route: "/RecetsView" },
+        { title: "Ortopedia", route: "/OrthopedicsView" },
         { title: "Perfumeria", route: "/PerfumeryView" },
         { title: "Cuidado Personal", route: "/PersonalCareView" },
         { title: "Contacto", route: "/ContactView" },
@@ -75,7 +76,7 @@ export default {
 .list-item {
   color: white;
   font-weight: bold;
-  font-family: Monserrat;  
+  font-family: Monserrat;
   background-color: green;
 }
 

@@ -6,6 +6,7 @@ import LocationView from '../modules/location/view/LocationView.vue';
 import PersonalCareView from '../modules/personalCare/view/PersonalCareView.vue';
 import PerfumeryView from '../modules/perfumery/view/PerfumeryView.vue';
 import OffersView from '../modules/offers/view/OffersView.vue';
+import OrthopedicsView from '../modules/orthopedics/view/OrthopedicsView.vue';
 
 
 const routes = [
@@ -43,6 +44,11 @@ const routes = [
     path: '/OffersView',
     name: 'OffersView',
     component: OffersView,
+  },
+  {
+    path: '/OrthopedicsView',
+    name: 'OrthopedicsView',
+    component: OrthopedicsView,
   },
 ];
 

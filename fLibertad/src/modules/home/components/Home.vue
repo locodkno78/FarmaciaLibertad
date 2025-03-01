@@ -43,6 +43,7 @@ export default {
       ],
       cards: [
         { image: "../../../../public/recetas.jpg", text: "Cargar Recetas", route: "/RecetsView" },
+        { image: "../../../../public/orthopedics.jpg", text: "Ortopedia", route: "/OrthopedicsView" },
         { image: "../../../../public/perfumeria.jpg", text: "Perfumeria", route: "/PerfumeryView" },
         { image: "../../../../public/cuidado-personal.jpg", text: "Cuidado Personal", route: "/PersonalCareView" },
         { image: "../../../../public/contacto.jpg", text: "Contactanos", route: "/ContactView" },
