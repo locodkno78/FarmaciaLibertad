@@ -7,7 +7,7 @@
           <v-img class="card-image" :src="card.image" contain></v-img>
           <v-card-title class="text-h5">{{ card.text2 }}</v-card-title>
           <v-card-actions>
-            <v-btn color="green" :text="card.text" href="https://wa.me/5493814150688"></v-btn>
+            <CustomButton :href="'https://wa.me/5493814150688'" :text="card.text">{{ card.text }}</CustomButton>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -16,10 +16,13 @@
 </template>
 
 <script>
-import { onMounted } from "vue";
+import CustomButton from "../../perfumery/components/CustomButton.vue";
 
 export default {
   name: "Offers",
+  components: {
+    CustomButton,
+  },
   data() {
     return {
       cards: [
@@ -27,7 +30,7 @@ export default {
         { image: "/gillete-oferta.jpg", text: "CONSULTAR", text2: "Gillete" },
         { image: "/nivea-oferta.webp", text: "CONSULTAR", text2: "Nivea" },
         { image: "/pantene.jpg", text: "CONSULTAR", text2: "Pantene" },
-        { image: "/rayito de sol.webp", text: "CONSULTAR", text2: "Rayito de Sol" },
+        { image: "/rayito-de-sol.webp", text: "CONSULTAR", text2: "Rayito de Sol" },
         { image: "/rexona.webp", text: "CONSULTAR", text2: "Rexona" }
       ]
     };

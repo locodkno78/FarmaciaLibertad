@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-carousel height="auto" show-arrows="hover" cycle hide-delimiter-background>
+    <v-carousel height="400px" show-arrows="hover" cycle hide-delimiter-background>
       <v-carousel-item v-for="(item, i) in items" :key="i">
         <v-img :src="item.src" contain></v-img>
       </v-carousel-item>
@@ -72,6 +72,7 @@ p {
 
 @media (max-width: 600px) {
   .cards {
+    margin-top: -150px;
     flex-direction: column;
     align-items: center;
   }

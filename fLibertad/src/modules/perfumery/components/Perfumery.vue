@@ -6,7 +6,7 @@
           <v-img class="card-image" :src="card.image" contain></v-img>
           <v-card-title class="text-h5">{{ card.text2 }}</v-card-title>
           <v-card-actions>
-            <v-btn color="green" :text="card.text" href="https://wa.me/5493814150688"></v-btn>
+            <CustomButton :href="'https://wa.me/5493814150688'" :text="card.text">{{ card.text }}</CustomButton>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -15,8 +15,13 @@
 </template>
 
 <script>
+import CustomButton from "./CustomButton.vue";
+
 export default {
   name: "Perfumery",
+  components: {
+    CustomButton,
+  },
   data() {
     return {
       cards: [
@@ -33,8 +38,10 @@ export default {
 </script>
 
 <style scoped>
-.text-h5{  
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.text-h5 {
+  font-family: 'Monserrat';
+  color: green;
+  text-align: center;
 }
 
 .cards {

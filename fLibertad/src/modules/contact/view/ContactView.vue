@@ -1,8 +1,10 @@
 <template>
-    <NavbarView />
-    <Contact />
-    <FooterView />
-    <WhatsAppView />
+    <div class="container">
+        <NavbarView />
+        <Contact />
+        <FooterView />
+        <WhatsAppView />
+    </div>
 </template>
 
 <script>
@@ -21,3 +23,15 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+    .container {
+        background-image: url("./farmaciafondo.jpeg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+    }
+</style>
