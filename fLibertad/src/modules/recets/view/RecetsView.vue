@@ -1,14 +1,10 @@
 <template>
-  <div>
+  <div class="container">
     <NavbarView />
-  </div>
-  <div>
     <Recets />
+    <FooterView class="footer-view" />
+    <WhatsAppView />
   </div>
-  <div>
-    <FooterView />
-  </div>
-  <WhatsAppView />
 </template>
 
 <script>
@@ -28,4 +24,19 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  background-image: url("./farmaciafondo.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.footer-view {
+  margin-top: 90px;
+  /* Ajusta este valor según sea necesario */
+}
+</style>

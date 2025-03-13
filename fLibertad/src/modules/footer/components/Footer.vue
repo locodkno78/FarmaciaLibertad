@@ -1,17 +1,30 @@
 <template>
-  <v-footer class="footer">
-    <v-row>
-      <v-col class="text-center mt-4" cols="12">
-        <strong>&copy; <a href="mailto:dicolantoniosantiago@gmail.com"
-            style="color: white; text-decoration: none; font-family: Monserrat;">2025
-            Santiago Di Colantonio. Todos los derechos reservados.</a></strong>
-      </v-col>
-    </v-row>
+  <v-footer class="footer text-center d-flex flex-column ga-2 py-1">
+    <div class="d-flex ga-3">
+      <a v-for="icon in icons" :key="icon.name" :href="icon.link" target="_blank" rel="noopener noreferrer">
+        <v-btn :icon="icon.name" density="comfortable" variant="text" color="white"></v-btn>
+      </a>
+    </div>
+    <strong style="color: white; text-decoration: none; font-family: Monserrat;">Lunes a Viernes de 08:00hs a 12:30hs y
+      de 16:30hs a 20:30hs - Sábados de 08:30hs a 12:30hs</strong>
+    <strong>&copy; <a href="mailto:dicolantoniosantiago@gmail.com"
+        style="color: white; text-decoration: none; font-family: Monserrat;">2025
+        Santiago Di Colantonio. Todos los derechos reservados.</a></strong>
   </v-footer>
 </template>
 <script>
 export default {
   name: "Footer",
+  data() {
+    return {
+      icons: [
+        { name: "mdi-email", link: "mailto:farmacialibertadtuc@yahoo.com.ar" },
+        { name: "mdi-whatsapp", link: "https://wa.me/5493814150688" },
+        { name: "mdi-whatsapp", link: "https://wa.me/5493812455794" },
+        { name: "mdi-instagram", link: "https://instagram.com/farmacialibertad" },
+      ],
+    };
+  },
 };
 </script>
 
@@ -23,9 +36,9 @@ export default {
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   z-index: 1000;
-  height: 50px;
+  height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;

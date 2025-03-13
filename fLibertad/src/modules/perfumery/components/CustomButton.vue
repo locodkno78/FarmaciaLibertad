@@ -1,24 +1,25 @@
 <template>
-    <v-btn class="btn" :href="href" :text="text">
-      <slot></slot>
-    </v-btn>
-  </template>
-  
-  <script>
-  export default {
-    name: "CustomButton",
-    props: {
-      href: {
-        type: String,
-        required: true,
-      },
-      text: {
-        type: String,
-        required: true,
-      },
+  <v-btn class="btn" :href="href" :text="text" target="_blank" rel="noopener noreferrer">
+    <slot></slot>
+  </v-btn>
+</template>
+
+<script>
+export default {
+  name: "CustomButton",
+  props: {
+    href: {
+      type: String,
+      required: true,
     },
-  };
-  </script>
+    text: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
+
   
   <style scoped>
   .btn {

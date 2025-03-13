@@ -7,7 +7,7 @@
           <v-img class="card-image" :src="card.image" contain></v-img>
           <v-card-title class="text-h5">{{ card.text2 }}</v-card-title>
           <v-card-actions>
-            <CustomButton :href="'https://wa.me/5493814150688'" :text="card.text">{{ card.text }}</CustomButton>
+            <CustomButton :href="'https://wa.me/5493812455794'" :text="card.text">{{ card.text }}</CustomButton>
           </v-card-actions>
         </v-card>
       </v-col>

@@ -2,22 +2,19 @@
     <div>
         <NavbarView />
         <PersonalCare class="personalCare-container" />
-        <FooterView claa="footer-view" />
-        <WhatsAppView />
+        <FooterView claa="footer-view" />       
     </div>
 </template>
 
 <script>
 import FooterView from "../../footer/view/FooterView.vue";
 import NavbarView from "../../navbar/view/NavbarView.vue";
-import WhatsAppView from "../../whatsapp/view/WhatsAppView.vue";
 import PersonalCare from "../components/PersonalCare.vue";
 export default {
     name: "PersonalCareView",
     components: {
         NavbarView,
-        PersonalCare,
-        WhatsAppView,
+        PersonalCare,       
         FooterView,
     },
 };

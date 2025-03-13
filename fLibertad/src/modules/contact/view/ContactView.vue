@@ -2,8 +2,8 @@
     <div class="container">
         <NavbarView />
         <Contact />
-        <FooterView />
         <WhatsAppView />
+        <FooterView class="footer-view"/>
     </div>
 </template>
 
@@ -31,7 +31,11 @@ export default {
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-position: center;
-        height: 100vh;
+        height: 100%;
         width: 100%;
     }
+
+    .footer-view {
+    margin-top: 90px; /* Ajusta este valor según sea necesario */
+  }
 </style>
