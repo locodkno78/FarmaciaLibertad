@@ -5,7 +5,7 @@
                 <v-card class="mx-auto" elevation="10">
                     <v-img class="card-image" :src="card.image" contain></v-img>
                     <v-card-title class="text-h5">{{ card.text2 }}</v-card-title>
-                    <v-card-actions>
+                    <v-card-actions class="text-h5">
                         <CustomButton :href="'https://wa.me/5493814150688'" :text="card.text">{{ card.text }}
                         </CustomButton>
                     </v-card-actions>
@@ -41,8 +41,9 @@ export default {
 <style scoped>
 .text-h5 {
     font-family: 'Monserrat';
-    color: green;
+    color: white;
     text-align: center;
+    background-color: green;
 }
 
 .cards {

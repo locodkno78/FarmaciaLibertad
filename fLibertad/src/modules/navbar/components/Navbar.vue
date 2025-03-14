@@ -39,7 +39,7 @@ export default {
         { title: "Cuidado Personal", route: "/PersonalCareView" },
         { title: "Contacto", route: "/ContactView" },
         { title: "Historia & Ubicación", route: "/LocationView" },
-        { title: "Ofertas", route: "/OffersView" },
+        { title: "Promociones", route: "/OffersView" },
       ],
     };
   },

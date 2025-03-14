@@ -15,7 +15,7 @@
             label="Obra Social"
             required
           ></v-select>
-          <v-textarea v-model="formData.receta" label="Pegue el Link de su Receta" :rules="[rules.required]" outlined></v-textarea>
+          <v-textarea v-model="formData.receta" label="Pegue el Link de su receta o numero de afiliado de PAMI" :rules="[rules.required]" outlined></v-textarea>
 
           <div class="mt-4 btn">
             <v-btn @click="submit" :disabled="!valid" class="btn1">Enviar</v-btn>
@@ -60,7 +60,7 @@ export default {
       domicilio: "",
       telefono: "",
       receta: "",
-      obraSocial: "", // Añadido campo obraSocial
+      obraSocial: "", 
     });
 
     const items = ref([
@@ -114,7 +114,7 @@ export default {
         domicilio: "",
         telefono: "",
         receta: "",
-        obraSocial: "", // Añadido campo obraSocial
+        obraSocial: "", 
       };
       if (formRef.value) {
         formRef.value.resetValidation();

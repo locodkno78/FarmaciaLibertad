@@ -6,7 +6,7 @@
         <v-card class="mx-auto" elevation="10">
           <v-img class="card-image" :src="card.image" contain></v-img>
           <v-card-title class="text-h5">{{ card.text2 }}</v-card-title>
-          <v-card-actions>
+          <v-card-actions class="text-h5">
             <CustomButton :href="'https://wa.me/5493812455794'" :text="card.text">{{ card.text }}</CustomButton>
           </v-card-actions>
         </v-card>
@@ -26,18 +26,18 @@ export default {
   data() {
     return {
       cards: [
-        { image: "/colgate.jpg", text: "CONSULTAR", text2: "Colgate" },
-        { image: "/gillete-oferta.jpg", text: "CONSULTAR", text2: "Gillete" },
-        { image: "/nivea-oferta.webp", text: "CONSULTAR", text2: "Nivea" },
-        { image: "/pantene.jpg", text: "CONSULTAR", text2: "Pantene" },
-        { image: "/rayito-de-sol.webp", text: "CONSULTAR", text2: "Rayito de Sol" },
-        { image: "/rexona.webp", text: "CONSULTAR", text2: "Rexona" }
+        { image: "/ofertas.jpg", text: "CONSULTAR", text2: "Proximamente" },
+        { image: "/ofertas.jpg", text: "CONSULTAR", text2: "Proximamente" },
+        { image: "/ofertas.jpg", text: "CONSULTAR", text2: "Proximamente" },
+        { image: "/ofertas.jpg", text: "CONSULTAR", text2: "Proximamente" },
+        { image: "/ofertas.jpg", text: "CONSULTAR", text2: "Proximamente" },
+        { image: "/ofertas.jpg", text: "CONSULTAR", text2: "Proximamente" }
       ]
     };
   },
   mounted() {
     let title = document.querySelector('h1');
-    let text = '***OFERTAS EXCLUSIVAS PARA LA WEB***';
+    let text = '***PROMOCIONES EXCLUSIVAS PARA LA WEB***';
     let letterStart = 0;
     let letterEnd = 1;
     let write = setInterval(() => {
@@ -54,10 +54,12 @@ export default {
 </script>
 
 <style scoped>
-.text-h5, h1 {
+.text-h5,
+h1 {
   font-family: 'Monserrat';
+  color: white;
   text-align: center;
-  color: green;
+  background-color: green;
 }
 
 .cards {
