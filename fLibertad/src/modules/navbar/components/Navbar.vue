@@ -38,7 +38,7 @@ export default {
         { title: "Perfumeria", route: "/PerfumeryView" },
         { title: "Cuidado Personal", route: "/PersonalCareView" },
         { title: "Contacto", route: "/ContactView" },
-        { title: "Ubicación", route: "/LocationView" },
+        { title: "Historia & Ubicación", route: "/LocationView" },
         { title: "Ofertas", route: "/OffersView" },
       ],
     };

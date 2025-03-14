@@ -36,7 +36,6 @@ export default {
 }
 
 .footer-view {
-  margin-top: 90px;
-  /* Ajusta este valor según sea necesario */
+  margin-top: 90px; 
 }
 </style>

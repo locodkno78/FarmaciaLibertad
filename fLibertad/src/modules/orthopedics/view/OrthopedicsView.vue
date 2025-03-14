@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <NavbarView />
-    <Orthopedics class="orthopedics-container" />
+    <Orthopedics />
     <FooterView class="footer-view" />
     <WhatsAppView />
   </div>
@@ -25,14 +25,12 @@ export default {
 </script>
 
 <style scoped>
-.orthopedics-container {
-  margin-bottom: 60px;
-  /* Ajusta este valor según sea necesario */
-  margin-left: 2%;
+.container {
+  height: 100%;
+  width: 100%;
 }
 
 .footer-view {
-  margin-top: 90px;
-  /* Ajusta este valor según sea necesario */
+  margin-top: 130px;
 }
 </style>

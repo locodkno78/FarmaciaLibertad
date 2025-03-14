@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <NavbarView />
-    <Perfumery class="perfumery-container" />
+    <Perfumery />
     <FooterView class="footer-view" />
   </div>
 </template>
@@ -22,14 +22,12 @@ export default {
 </script>
 
 <style scoped>
-.perfumery-container {
-  margin-bottom: 60px;
-  /* Ajusta este valor según sea necesario */
-  margin-left: 2%;
+.container {
+  height: 100%;
+  width: 100%;
 }
 
 .footer-view {
-  margin-top: 90px;
-  /* Ajusta este valor según sea necesario */
+  margin-top: 130px;
 }
 </style>

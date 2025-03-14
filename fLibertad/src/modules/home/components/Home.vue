@@ -28,7 +28,7 @@ export default {
         { image: "../../../../public/perfumeria.jpg", text: "Perfumeria", route: "/PerfumeryView" },
         { image: "../../../../public/cuidado-personal.jpg", text: "Cuidado Personal", route: "/PersonalCareView" },
         { image: "../../../../public/contacto.jpg", text: "Contactanos", route: "/ContactView" },
-        { image: "../../../../public/maps.jpg", text: "Ubicación", route: "/LocationView" },
+        { image: "../../../../public/maps.jpg", text: "Historia & Ubicación", route: "/LocationView" },
         { image: "../../../../public/ofertas.jpg", text: "Ofertas", route: "/OffersView" }
       ]
     };

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     <NavbarView />
-    <Home class="home-container" />
-    <FooterView  class="footer-view"/>
+    <Home />
+    <FooterView class="footer-view" />
     <WhatsAppView />
   </div>
 </template>
@@ -24,12 +24,12 @@ export default {
 </script>
 
 <style scoped>
-  .perfumery-container {
-    margin-bottom: 60px; /* Ajusta este valor según sea necesario */
-    margin-left: 2%;
-  }
-  
-  .footer-view {
-    margin-top: 90px; /* Ajusta este valor según sea necesario */
-  }
-  </style>
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.footer-view {
+  margin-top: 110px;  
+}
+</style>
