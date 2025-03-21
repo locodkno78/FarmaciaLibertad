@@ -1,190 +1,175 @@
 <template>
-    <v-container>
-        <v-card class="mx-auto my-8 card" elevation="16" max-width="500">
-            <v-card-title class="title">Formulario de Consulta</v-card-title>
-            <form ref="form" @submit.prevent="handleSubmit" class="form-container">
-                <!-- Campo de Nombre -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" v-model="formData.name" name="name" required />
-                </div>
+     <v-container class="mt-4">
+    <v-card class="mx-auto my-8 card" elevation="16" max-width="500">
+      <v-card-title class="title">Formulario Receta</v-card-title>
+      <v-card-text>
+        <v-form ref="formRef" v-model="valid" class="form">
+          <v-text-field v-model="formData.nombre" label="Nombre" :rules="[rules.required]" outlined></v-text-field>
+          <v-text-field v-model="formData.apellido" label="Apellido" :rules="[rules.required]" outlined></v-text-field>          
+          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]" outlined></v-text-field>          
+          <v-textarea v-model="formData.consulta" label="Escriba su consulta aquí" :rules="[rules.required]" outlined></v-textarea>
 
-                <!-- Campo de Email -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Ingrese su Email" v-model="formData.email" name="email" required />
-                </div>
+          <div class="mt-4 btn">
+            <v-btn @click="submit" :disabled="!valid" class="btn1">Enviar</v-btn>
+            <v-btn @click="resetForm" class="btn1">Limpiar</v-btn>
+          </div>
+        </v-form>
+      </v-card-text>
+    </v-card>
 
-                <!-- Campo de Asunto -->
-                <div class="mb-3">
-                    <label for="subject" class="form-label">Asunto</label>
-                    <input type="text" class="form-control" id="subject" placeholder="Ingrese su número de teléfono" v-model="formData.subject" name="subject" required />
-                </div>
+    <!-- Snackbar de éxito -->
+    <v-snackbar v-model="snackbar.success" color="green" location="center">
+      {{ snackbar.message }}
+      <template v-slot:actions>
+        <v-btn color="white" text @click="goHome">Aceptar</v-btn>
+      </template>
+    </v-snackbar>
 
-                <!-- Campo de Consulta -->
-                <div class="mb-3">
-                    <label for="consulta" class="form-label">Consulta</label>
-                    <textarea class="form-control" id="consulta" rows="4" placeholder="Escriba su consulta aquí..." v-model="formData.consulta" name="consulta" required></textarea>
-                </div>
-                <!-- Botón de Enviar -->
-                <div class="button-container">
-                    <button type="submit" class="btn btn-light" data-bs-toggle="tooltip" title="Enviar consulta">Enviar</button>
-                </div>
-            </form>
-        </v-card>
-    </v-container>
+    <!-- Snackbar de error -->
+    <v-snackbar v-model="snackbar.error" color="red" location="center">
+      {{ snackbar.message }}
+      <template v-slot:actions>
+        <v-btn color="white" text @click="snackbar.error = false">Cerrar</v-btn>
+      </template>
+    </v-snackbar>
+  </v-container>
 </template>
 
 <script>
-import emailjs from 'emailjs-com';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { db } from "../../../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 export default {
     name: "Contact",
-    data() {
-        return {
-            formData: {
-                name: "",
-                email: "",
-                subject: "",
-                consulta: ""
-            }
+    setup() {
+    const router = useRouter();
+    const formRef = ref(null);
+    const formData = ref({
+      nombre: "",
+      apellido: "",      
+      telefono: "",
+      consulta: "",      
+    });
+
+    const snackbar = ref({ success: false, error: false, message: "" });
+    const goHome = () => {
+      snackbar.value.success = false;
+      router.push("/");
+    };
+
+    const valid = ref(false);
+    const rules = {
+      required: (value) => !!value || "Este campo es obligatorio.",
+      phone: (value) => /^[0-9]{7,10}$/.test(value) || "Debe ser un número de teléfono válido.",
+    };
+
+    const submit = async () => {
+      try {
+        await addDoc(collection(db, "consultas"), formData.value);
+        snackbar.value = {
+          success: true,
+          error: false,
+          message: "Formulario enviado correctamente. En breve nos contactaremos con Ud.",
         };
-    },
-    methods: {
-        async handleSubmit() {
-            try {
-                const templateParams = {
-                    name: this.formData.name,
-                    email: this.formData.email,
-                    subject: this.formData.subject,
-                    consulta: this.formData.consulta
-                };
+        resetForm();
+      } catch (error) {
+        console.error("Error al enviar el formulario:", error);
+        snackbar.value = {
+          success: false,
+          error: true,
+          message: "Hubo un error al enviar el formulario. Inténtelo nuevamente.",
+        };
+      }
+    };
 
-                const response = await emailjs.send(
-                    'service_2rkajbo', // Reemplaza con tu service_id
-                    'template_cyac8k3', // Reemplaza con tu template_id
-                    templateParams,
-                    '4h5FS7XLOdsa7cUsI' // Reemplaza con tu user_id
-                );
+    const resetForm = () => {
+      formData.value = {
+        nombre: "",
+        apellido: "",
+        telefono: "",
+        consulta: "",        
+      };
+      if (formRef.value) {
+        formRef.value.resetValidation();
+      }
+    };
 
-                if (response.status === 200) {
-                    // Mostrar mensaje de alerta
-                    alert('Consulta enviada');
-
-                    // Resetear el formulario
-                    this.formData = {
-                        name: '',
-                        email: '',
-                        subject: '',
-                        consulta: ''
-                    };
-                } else {
-                    alert('Hubo un problema al enviar la consulta. Por favor, inténtelo de nuevo.');
-                }
-            } catch (error) {
-                console.error('Error al enviar el formulario:', error);
-                alert('Hubo un problema al enviar la consulta. Por favor, inténtelo de nuevo.');
-            }
-        }
-    }
+    return {
+      formData,
+      valid,
+      rules,
+      submit,
+      resetForm,
+      formRef,
+      snackbar,
+      goHome
+    };
+  },
 };
 </script>
 
 <style scoped>
+.v-container {
+  max-width: 600px;
+  margin-bottom: 5%;
+  overflow-x: hidden;
+}
+
 .card {
-    border-width: 2px;
-    border-color: green;
-    margin: 0 auto;
-    height: auto;
+  border-width: 2px;
+  border-color: green;
+  margin: 0 auto;
+  height: auto;
 }
 
 .title {
-    font-family: Monserrat;
-    font-weight: bolder;
-    font-size: 2rem;
-    background-color: green;
-    color: white;
-    text-align: center;
-    padding: 5px;
+  font-family: Monserrat;
+  font-weight: bolder;
+  font-size: 2.5rem;
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
 
-.form-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Ajusta este valor según sea necesario */
-    margin: 0 auto 20px auto; /* Centra el formulario horizontalmente y añade margen inferior */
-    transition: background-color 0.3s ease; /* Añade una transición suave */
-}
-
-.form-container:hover {
-    background-color: white; /* Cambia el fondo a blanco cuando se posiciona sobre el formulario */
-}
-
-.form-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    color: green;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-}
-
-.form-control:focus {
-    border-color: green;
-    box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
+.form {
+  padding-top: 2%;
+  font-family: Monserrat;  
 }
 
 .btn {
-    background-color: green;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  text-align: center;
 }
 
-.btn:hover {
-    background-color: darkgreen;
+.btn1 {
+  background-color: green;
+  color: white;
+  margin-left: 5%;
 }
 
 @media (max-width: 600px) {
-    .form-title {
-        font-size: 1.5rem;
-    }
+  .card {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+  }
 
-    .form-container {
-        padding: 15px;
-        max-width: 100%; /* Asegura que el formulario ocupe el ancho completo en pantallas pequeñas */
-    }
+  .title {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
 
-    .form-label {
-        font-size: 0.9rem;
-    }
+  .btn1 {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
 
-    .form-control {
-        font-size: 0.9rem;
-    }
-
-    .btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
+@media (max-width: 768px) {
+  .v-container {
+    padding: 0 20px;
+  }
 }
 </style>
