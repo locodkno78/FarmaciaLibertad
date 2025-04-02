@@ -1,12 +1,13 @@
 <template>
      <v-container class="mt-4">
     <v-card class="mx-auto my-8 card" elevation="16" max-width="500">
-      <v-card-title class="title">Formulario Receta</v-card-title>
+      <v-card-title class="title">Formulario Consulta</v-card-title>
       <v-card-text>
         <v-form ref="formRef" v-model="valid" class="form">
           <v-text-field v-model="formData.nombre" label="Nombre" :rules="[rules.required]" outlined></v-text-field>
           <v-text-field v-model="formData.apellido" label="Apellido" :rules="[rules.required]" outlined></v-text-field>          
-          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]" outlined></v-text-field>          
+          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]" outlined></v-text-field> 
+          <v-text-field v-model="formData.mail" label="Email" :rules="[rules.required, rules.mail]" outlined></v-text-field>          
           <v-textarea v-model="formData.consulta" label="Escriba su consulta aquí" :rules="[rules.required]" outlined></v-textarea>
 
           <div class="mt-4 btn">
@@ -50,6 +51,7 @@ export default {
       nombre: "",
       apellido: "",      
       telefono: "",
+      mail: "",
       consulta: "",      
     });
 
@@ -63,6 +65,10 @@ export default {
     const rules = {
       required: (value) => !!value || "Este campo es obligatorio.",
       phone: (value) => /^[0-9]{7,10}$/.test(value) || "Debe ser un número de teléfono válido.",
+      mail: (value) => {
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailPattern.test(value) || "Debe ser un correo electrónico válido.";
+      },
     };
 
     const submit = async () => {
@@ -89,6 +95,7 @@ export default {
         nombre: "",
         apellido: "",
         telefono: "",
+        mail: "",
         consulta: "",        
       };
       if (formRef.value) {
