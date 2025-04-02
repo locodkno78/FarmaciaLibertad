@@ -4,10 +4,11 @@
       <v-col cols="12" sm="6" md="4" v-for="(card, index) in cards" :key="index">
         <v-card class="mx-auto" elevation="10">
           <v-img class="card-image" :src="card.image" contain></v-img>
-          <v-card-title class="text-h5">{{ card.text1 }}</v-card-title>          
+          <v-card-title class="text-h5">{{ card.text1 }}</v-card-title>
           <v-card-text class="text-h5">{{ card.text2 }}</v-card-text>
           <v-card-actions class="text-h5">
-            <CustomButton class="btn" :href="'https://wa.me/5493812455794'" :text="card.text">{{ card.text }}</CustomButton>
+            <CustomButton class="btn" :href="'https://wa.me/5493812455794'" :text="card.text">{{ card.text }}
+            </CustomButton>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -26,15 +27,15 @@ export default {
   data() {
     return {
       cards: [
-        { image: "/adidas_vibes.jpeg", text: "CONSULTAR", text1: "ADIDAS VIBES"},
-        { image: "/benetton_sisterland.jpeg", text: "CONSULTAR", text1: "BENETTON SISTERLAND"},
-        { image: "/antonio-banderas.jpg", text: "CONSULTAR", text1: "The Golden Secret"},
-        { image: "/benetton_tribe_cool.jpeg", text: "CONSULTAR", text1: "BENETTON TRIBE COOL"},
-        { image: "/cher.jpeg", text: "CONSULTAR", text1: "CHER N° 18"},
-        { image: "/nina_ricci.jpeg", text: "CONSULTAR", text1: "NINA RICCI"},
-        { image: "/paula_alma.jpeg", text: "CONSULTAR", text1: "PAULA ALMA"},
-        { image: "/paula_amor.jpeg", text: "CONSULTAR", text1: "PAULA AMOR"},
-        { image: "/shakira_dance.jpeg", text: "CONSULTAR", text1: "SHAKIRA DANCE DIAMONDS"}
+        { image: "/adidas_vibes.jpeg", text: "CONSULTAR", text1: "ADIDAS VIBES" },
+        { image: "/benetton_sisterland.jpeg", text: "CONSULTAR", text1: "BENETTON SISTERLAND" },
+        { image: "/antonio-banderas.jpg", text: "CONSULTAR", text1: "The Golden Secret" },
+        { image: "/benetton_tribe_cool.jpeg", text: "CONSULTAR", text1: "BENETTON TRIBE COOL" },
+        { image: "/cher.jpeg", text: "CONSULTAR", text1: "CHER N° 18" },
+        { image: "/nina_ricci.jpeg", text: "CONSULTAR", text1: "NINA RICCI" },
+        { image: "/paula_alma.jpeg", text: "CONSULTAR", text1: "PAULA ALMA" },
+        { image: "/paula_amor.jpeg", text: "CONSULTAR", text1: "PAULA AMOR" },
+        { image: "/shakira_dance.jpeg", text: "CONSULTAR", text1: "SHAKIRA DANCE DIAMONDS" }
       ]
     };
   }
@@ -44,9 +45,9 @@ export default {
 <style scoped>
 .text-h5 {
   font-family: 'Monserrat';
-    color: white;
-    text-align: center;
-    background-color:
+  color: white;
+  text-align: center;
+  background-color:
     rgb(8, 92, 8);
 }
 
@@ -71,11 +72,12 @@ export default {
   object-fit: contain;
   height: 280px;
 }
-.btn{
+
+.btn {
   background-color: green;
   color: white;
   font-family: 'Monserrat';
-  border-radius: 0.8em;  
+  border-radius: 0.8em;
   border: 1px solid;
 }
 
@@ -87,6 +89,7 @@ export default {
   .cards {
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10%;
   }
 }
 </style>

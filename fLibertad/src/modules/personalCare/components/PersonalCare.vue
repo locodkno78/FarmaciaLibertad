@@ -6,7 +6,8 @@
           <v-img class="card-image" :src="card.image"></v-img>
           <v-card-title class="text-h5">{{ card.text2 }}</v-card-title>
           <v-card-actions class="text-h5">
-            <CustomButton class="btn" :href="'https://wa.me/5493812455794'" :text="card.text">{{ card.text }}</CustomButton>
+            <CustomButton class="btn" :href="'https://wa.me/5493812455794'" :text="card.text">{{ card.text }}
+            </CustomButton>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -56,17 +57,22 @@ export default {
 }
 
 .card {
-  width: 300px; /* Fija el ancho de todas las tarjetas */
-  height: 400px; /* Fija la altura de todas las tarjetas */
+  width: 300px;
+  /* Fija el ancho de todas las tarjetas */
+  height: 400px;
+  /* Fija la altura de todas las tarjetas */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .card-image {
-  object-fit: cover; /* Asegura que la imagen llene el espacio */
-  height: 200px; /* Fija la altura de la imagen */
-  width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+  object-fit: cover;
+  /* Asegura que la imagen llene el espacio */
+  height: 200px;
+  /* Fija la altura de la imagen */
+  width: 100%;
+  /* Asegura que la imagen ocupe todo el ancho */
 }
 
 .btn {
@@ -81,6 +87,7 @@ export default {
   .cards {
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10%;
   }
 }
 </style>

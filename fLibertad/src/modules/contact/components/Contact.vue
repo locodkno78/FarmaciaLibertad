@@ -1,14 +1,17 @@
 <template>
-     <v-container class="mt-4">
+  <v-container class="mt-4">
     <v-card class="mx-auto my-8 card" elevation="16" max-width="500">
       <v-card-title class="title">Formulario Consulta</v-card-title>
       <v-card-text>
         <v-form ref="formRef" v-model="valid" class="form">
           <v-text-field v-model="formData.nombre" label="Nombre" :rules="[rules.required]" outlined></v-text-field>
-          <v-text-field v-model="formData.apellido" label="Apellido" :rules="[rules.required]" outlined></v-text-field>          
-          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]" outlined></v-text-field> 
-          <v-text-field v-model="formData.mail" label="Email" :rules="[rules.required, rules.mail]" outlined></v-text-field>          
-          <v-textarea v-model="formData.consulta" label="Escriba su consulta aquí" :rules="[rules.required]" outlined></v-textarea>
+          <v-text-field v-model="formData.apellido" label="Apellido" :rules="[rules.required]" outlined></v-text-field>
+          <v-text-field v-model="formData.telefono" label="Teléfono" :rules="[rules.required, rules.phone]"
+            outlined></v-text-field>
+          <v-text-field v-model="formData.mail" label="Email" :rules="[rules.required, rules.mail]"
+            outlined></v-text-field>
+          <v-textarea v-model="formData.consulta" label="Escriba su consulta aquí" :rules="[rules.required]"
+            outlined></v-textarea>
 
           <div class="mt-4 btn">
             <v-btn @click="submit" :disabled="!valid" class="btn1">Enviar</v-btn>
@@ -43,16 +46,16 @@ import { db } from "../../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 export default {
-    name: "Contact",
-    setup() {
+  name: "Contact",
+  setup() {
     const router = useRouter();
     const formRef = ref(null);
     const formData = ref({
       nombre: "",
-      apellido: "",      
+      apellido: "",
       telefono: "",
       mail: "",
-      consulta: "",      
+      consulta: "",
     });
 
     const snackbar = ref({ success: false, error: false, message: "" });
@@ -96,7 +99,7 @@ export default {
         apellido: "",
         telefono: "",
         mail: "",
-        consulta: "",        
+        consulta: "",
       };
       if (formRef.value) {
         formRef.value.resetValidation();
@@ -143,7 +146,7 @@ export default {
 
 .form {
   padding-top: 2%;
-  font-family: Monserrat;  
+  font-family: Monserrat;
 }
 
 .btn {
@@ -176,7 +179,7 @@ export default {
 
 @media (max-width: 768px) {
   .v-container {
-    padding: 0 20px;
+    padding: 0 20px 15%;
   }
 }
 </style>

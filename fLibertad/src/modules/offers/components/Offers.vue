@@ -81,6 +81,7 @@ h1 {
   .cards {
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10%;
   }
 }
 </style>
